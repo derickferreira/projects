@@ -1,0 +1,272 @@
+/* sale */
+
+.sale_products {
+  color: var(--colour_DefaultWhite);
+  animation: saleAnimation 3s infinite linear;
+  text-align: center;
+  margin: 1rem auto;
+  width: 15rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+/* sale */
+
+.promotions_product,
+.product_container,
+.price_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promotions_product {
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.promotions_product h4 {
+  font-weight: 500;
+}
+
+.product_container {
+  flex-direction: column;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  width: 15rem;
+  height: 24rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.product_container:hover {
+  transform: scale(1.05);
+}
+
+.product_container:active {
+  transform: scale(0.99);
+}
+
+.price_container {
+  margin: 1rem 0;
+  font-family: var(--font_rubik);
+  font-weight: bold;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.price_container .risk_price {
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.promotions_product button {
+  background-color: var(--colour_mintGreen);
+  color: var(--colour_DefaultWhite);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-family: var(--font_poppins);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.promotions_product button:hover {
+  background-color: transparent;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    var(--colour_mintGreen) 0px 0px 0px 1px;
+  color: var(--colour_DefaultBlack);
+}
+
+.product_container .image_container {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.product_container .image_container img {
+  width: 100%;
+  height: 100%;
+}
+
+/* animations */
+@keyframes saleAnimation {
+  0% {
+    background-color: var(--colour_DefaultBlack);
+  }
+  25% {
+    background-color: var(--colour_mintGreen);
+  }
+  50% {
+    background-color: var(--colour_lightOrange);
+  }
+  75% {
+    background-color: var(--colour_darkOrange);
+  }
+  100% {
+    background-color: var(--colour_DefaultBlack);
+  }
+}
+
+.title {
+  text-align: center;
+  margin: 2rem;
+}
+.title h4 {
+  font-weight: 400;
+}
+
+/* card container */
+.card_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+}
+
+.card_container li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 300px;
+}
+
+.card_container li h3 {
+  color: var(--colour_mintGreen);
+}
+
+.card_container p {
+  text-align: justify;
+  text-indent: 0.5rem;
+  width: 70%;
+}
+
+.card_container svg {
+  color: var(--colour_darkOrange);
+  font-size: 3rem;
+}
+
+/* banner */
+.banner {
+  background-color: var(--colour_DefaultGrey);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 0.5rem;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+}
+
+.banner h1,
+.banner p {
+  color: var(--colour_DefaultWhite);
+}
+
+.banner span {
+  color: var(--colour_lightOrange);
+}
+
+/* why container */
+.why_container {
+  background-color: var(--colour_DefaultWhite);
+}
+
+.why_container,
+.why_about_us,
+.container_right {
+  display: flex;
+}
+
+.why_about_us {
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 50%;
+  padding: 1rem;
+}
+
+.why_about_us p {
+  font-size: 0.9rem;
+}
+
+.why_about_us button {
+  align-self: flex-start;
+  border: none;
+  background-color: var(--colour_lightOrange);
+  color: var(--colour_DefaultWhite);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-family: var(--font_poppins);
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 2rem;
+  box-shadow: var(--colour_lightOrange) 0px 0px 30px 5px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.why_about_us button:hover {
+  transform: scale(1.09);
+  background-color: transparent;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    var(--colour_lightOrange) 0px 0px 0px 1px;
+  color: var(--colour_DefaultBlack);
+}
+
+.why_about_us button:active {
+  transform: scale(0.95);
+}
+
+.why_about_us button svg {
+  font-size: 1.5rem;
+}
+
+.container_right {
+  flex-direction: column;
+  width: 50%;
+}
+
+.container_right svg {
+  font-size: 10rem;
+  color: var(--colour_lightOrange);
+}
+
+.container_right li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.container_right li p {
+  font-size: 0.9rem;
+  width: 80%;
+}
+
+.image_choose_container {
+  margin-top: 1rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.image_choose_container img {
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 550px) {
+  .why_container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

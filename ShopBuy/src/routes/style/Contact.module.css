@@ -1,0 +1,98 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.container .informations_container,
+.container form,
+.container form label,
+.container .informations_container ul,
+.container .informations_container ul li {
+  display: flex;
+}
+
+.container .informations_container,
+.container form,
+.container form label,
+.container .informations_container ul {
+  flex-direction: column;
+}
+
+.container .informations_container {
+  gap: 1rem;
+}
+
+.container .informations_container ul {
+  gap: 0.5rem;
+}
+
+.container .informations_container ul li {
+  align-items: center;
+}
+
+.container .informations_container ul li span {
+  font-size: 0.9rem;
+  font-family: var(--font_poppins);
+  font-weight: 500;
+}
+
+.container .informations_container ul svg {
+  font-size: 1.7rem;
+  color: var(--colour_darkOrange);
+}
+
+.container form {
+  font-family: var(--font_poppins);
+}
+
+.container form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.container form label span {
+  margin: 1rem;
+}
+
+.container form label input {
+  border: none;
+  background-color: #f2f2f2;
+  padding: 1.5rem 2rem;
+  outline: none;
+}
+
+.container form span > span {
+  color: var(--colour_darkOrange);
+}
+
+.container form textarea {
+  height: 200px;
+  padding: 0.1rem;
+}
+
+.container form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  border: none;
+  background-color: var(--colour_lightOrange);
+  color: var(--colour_DefaultWhite);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-family: var(--font_poppins);
+  font-size: 1rem;
+  margin-top: 2rem;
+  box-shadow: var(--colour_lightOrange) 0px 0px 30px 5px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.container form button:hover {
+  transform: scale(1.04);
+  background-color: transparent;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    var(--colour_lightOrange) 0px 0px 0px 1px;
+  color: var(--colour_mintGreen);
+}

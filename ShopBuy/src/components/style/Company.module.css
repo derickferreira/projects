@@ -1,0 +1,66 @@
+.image_container {
+  width: 430px;
+  height: 430px;
+}
+
+.image_container img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* ========= */
+.about_company {
+  margin-top: 4rem;
+}
+
+.about_company h3 {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.informations_container {
+  display: flex;
+  width: 800px;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.informations {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+}
+
+.informations h1 {
+    text-align: justify;
+}
+
+.informations .about_places {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.about_company li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.about_places svg {
+    color: var(--colour_lightOrange);
+    font-size: 2.4rem;
+}
+
+.number {
+    font-family: var(--font_rubik);
+    font-size: 1.5rem;
+    font-weight: bold;
+}

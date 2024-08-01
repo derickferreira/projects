@@ -1,0 +1,7 @@
+.button_n1n2_n3n4 {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.1rem;
+  font-family: var(--font_poppins);
+  cursor: pointer;
+}

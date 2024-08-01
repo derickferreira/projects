@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --colour_lightOrange: #fd492c;
+  --colour_darkOrange: #ff3617;
+  --colour_mintGreen: #5cae7c;
+  --colour_Grey: #706f7b;
+
+  --colour_DefaultBlack: #000;
+  --colour_DefaultWhite: #fff;
+  --colour_DefaultGrey: #2d2d2d;
+
+  --font_poppins: Poppins;
+  --font_rubik: Rubik;
+
+  /* extras */
+  --colour_cocoa: #191815;
+  --colour_coal: #282729;
+  --colour_midnight: #051119;
+  --colour_night_forest: #121813;
+  --colour_burnt_coffee: #140e0a;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+h1,
+h2,
+h3,
+h4,
+a {
+  font-family: var(--font_rubik);
+}
+
+p {
+  font-family: var(--font_rubik);
+  color: var(--colour_Grey);
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

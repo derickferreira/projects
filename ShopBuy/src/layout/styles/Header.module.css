@@ -1,0 +1,127 @@
+.header,
+.title,
+.navbar,
+.account_entries {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+/* title */
+.title {
+  font-family: var(--font_poppins);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.title .shop {
+  color: var(--colour_lightOrange);
+  font-size: 1.8rem;
+}
+
+.title .buy {
+  color: var(--colour_mintGreen);
+  text-decoration: underline;
+  font-size: 2.6rem;
+}
+
+.title:hover .shop {
+  text-decoration: underline;
+}
+.title:hover .buy {
+  text-decoration: none;
+}
+
+/* navbar */
+.navbar {
+  gap: 1rem;
+}
+
+.navbar a {
+  color: var(--colour_DefaultWhite);
+  padding: 0 1rem;
+  font-weight: bold;
+}
+
+.navbar li {
+  background-color: var(--colour_DefaultBlack);
+  padding: 0.5rem 0;
+  border-radius: 5px;
+  transition: 0.2s ease-in-out;
+}
+
+.navbar li:hover {
+  background-color: var(--colour_DefaultWhite);
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+  transform: scale(1.095);
+}
+
+.navbar li:hover a {
+  color: var(--colour_DefaultBlack);
+}
+
+.navbar li:active {
+  transform: scale(0.95);
+}
+
+/* account entries */
+.account_entries {
+  gap: 2rem;
+}
+
+.account_entries li:first-child a {
+  color: var(--colour_DefaultBlack);
+  text-decoration: underline;
+}
+
+.account_entries .register {
+  background-color: var(--colour_lightOrange);
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  box-shadow: var(--colour_lightOrange) 0px 10px 50px;
+  transition: 0.3s ease-in-out;
+}
+
+.account_entries .register a {
+  color: var(--colour_DefaultWhite);
+  font-family: var(--font_poppins);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.account_entries .register:hover {
+  background-color: var(--colour_DefaultWhite);
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    var(--colour_lightOrange) 0px 0px 0px 1px;
+  transform: scale(1.095);
+}
+
+.account_entries .register:hover a {
+  color: var(--colour_mintGreen);
+}
+
+.bar_btn {
+  display: none;
+}
+
+@media screen and (max-width: 885px) {
+  .navbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .account_entries {
+    display: none;
+  }
+
+  .bar_btn {
+    display: flex;
+  }
+}
