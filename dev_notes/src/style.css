@@ -12,6 +12,32 @@
   --black: #202022;
 }
 
+@keyframes fixed {
+  0% {
+    border: 1px solid var(--cyan);
+  }
+
+  25% {
+    border: 1px solid #efefef;
+  }
+
+  50% {
+    border: 1px solid var(--cyan);
+  }
+
+  75% {
+    border: 1px solid #efefef;
+  }
+  100% {
+    border: 1px solid var(--cyan);
+  }
+}
+
+.fixed {
+  opacity: 1;
+  animation: fixed 1s infinite none;
+}
+
 #title {
   grid-area: title;
 }
@@ -98,6 +124,7 @@ main {
 }
 
 .note {
+  opacity: 0.9;
   flex-direction: column;
   width: 200px;
   height: 200px;
@@ -112,7 +139,7 @@ main {
 }
 
 .example_note.note {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .note .title {
