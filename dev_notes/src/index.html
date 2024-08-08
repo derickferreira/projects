@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevNotes</title>
+    <script src="./../build/index.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h2>NotedNotes</h2>
+      <button class="bi bi-moon-fill"></button>
+      <button>
+        Export to CSV
+        <i class="bi bi-download"></i>
+      </button>
+    </header>
+    <main>
+      <div id="notes_container">
+        <div class="note example">
+          <h3 id="title">Example</h3>
+          <textarea name="text" id="text"></textarea>
+          <div class="options_controls">
+            <button class="bi bi-x"></button>
+            <button class="bi bi-copy"></button>
+            <button class="bi bi-pin-angle"></button>
+          </div>
+        </div>
+      </div>
+      <aside>
+        <div id="note_create_container">
+          <input type="text" placeholder="title here" />
+          <textarea placeholder="write your note here"></textarea>
+          <button class="bi bi-plus"></button>
+        </div>
+        <div id="note_search_container">
+          <input type="text" placeholder="search here" />
+          <button class="bi bi-search"></button>
+        </div>
+        <div id="note_filter_container">
+          <select name="filter" id="filter">
+            <option value="">All</option>
+            <option value="important">Important</option>
+            <option value="starred">Starred</option>
+          </select>
+          <button class="bi bi-filter"></button>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>
