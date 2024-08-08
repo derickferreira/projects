@@ -1,0 +1,205 @@
+/*/ genera */
+
+* {
+  box-sizing: border-box;
+  font-family: "Rubik";
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --cyan: #00bbc9;
+  --black: #202022;
+}
+
+#title {
+  grid-area: title;
+}
+
+#text {
+  grid-area: text;
+  margin-top: 0.7rem;
+  resize: none;
+  overflow: hidden;
+  padding: 0.5rem;
+  background-color: var(--black);
+  border-radius: 0.5rem;
+  height: 100px;
+  color: #efefef;
+}
+
+.bi-plus {
+  grid-area: plus;
+  width: 10rem;
+}
+
+header,
+main,
+.note,
+aside,
+aside #note_search_container,
+aside #note_filter_container {
+  display: flex;
+}
+
+button {
+  transform: 0.3s;
+  background-color: var(--black);
+  color: var(--cyan);
+  border-radius: 0.2rem;
+  font-weight: bold;
+  font-family: Poppins;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #fff;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+main button {
+  padding: 0.1rem.2rem;
+}
+
+/* genera / */
+
+body {
+  background-color: #121212;
+}
+
+header {
+  background-color: #1f1f1f;
+  justify-content: space-around;
+  padding: 1rem 2rem;
+  box-shadow: rgba(226, 226, 226, 0.041) 0px 10px 10px -10px;
+}
+
+header h1 {
+  font-family: Poppins, sans-serif;
+  color: #efefef;
+  letter-spacing: 2px;
+}
+
+/* / container */
+main {
+  padding: 1rem;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#notes_container {
+  flex: 3 1 0;
+}
+
+.note {
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  background-color: var(--black);
+  padding: 1rem;
+  border-radius: 0.3rem;
+  position: relative;
+}
+
+.active_note.note {
+  border: 1px solid #efefef;
+}
+
+.example_note.note {
+  opacity: .4;
+}
+
+.note .title {
+  color: var(--cyan);
+  border-bottom: 1px solid var(--cyan);
+}
+
+.note .text {
+  resize: none;
+  width: 100%;
+  height: 70%;
+  background-color: var(--black);
+  outline: none;
+  border: none;
+  color: #efefef;
+  font-weight: bold;
+  font-family: Rubik;
+  overflow: hidden;
+}
+
+.options_controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*  container /*/
+
+/* /aside */
+aside {
+  flex: 1 1 0;
+  flex-direction: column;
+  border: 2px solid #efefef;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  height: 40vh;
+  width: 35vw;
+}
+
+aside > div {
+  border-bottom: 1px solid var(--cyan);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+aside > div:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+aside input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem 0 0 0.3rem;
+  background-color: var(--black);
+  color: #efefef;
+}
+
+aside button {
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+aside #note_create_container {
+  display: grid;
+  grid-template-areas:
+    "title plus"
+    "text text";
+}
+
+aside #note_create_container:focus-within button {
+  width: 5rem !important;
+}
+
+aside #note_filter_container select {
+  appearance: none;
+  padding: 0.5rem 1rem;
+  background-color: var(--black);
+  color: var(--cyan);
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+/* aside/ */
