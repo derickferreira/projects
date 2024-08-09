@@ -1,8 +1,8 @@
-/*/ genera */
+/* / genera */
 
 * {
   box-sizing: border-box;
-  font-family: "Rubik";
+  font-family: "Rubik", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -10,74 +10,49 @@
 :root {
   --cyan: #00bbc9;
   --black: #202022;
+  --white: #efefef;
 }
 
 @keyframes fixed {
   0% {
-    border: 1px solid var(--cyan);
+    border: 2px solid var(--cyan);
   }
-
   25% {
-    border: 1px solid #efefef;
+    border: 2px solid var(--white);
   }
-
   50% {
-    border: 1px solid var(--cyan);
+    border: 2px solid var(--cyan);
   }
-
   75% {
-    border: 1px solid #efefef;
+    border: 2px solid var(--white);
   }
   100% {
-    border: 1px solid var(--cyan);
+    border: 2px solid var(--cyan);
   }
 }
 
-.fixed {
+.note.fixed {
   opacity: 1;
-  animation: fixed 1s infinite none;
-}
-
-#title {
-  grid-area: title;
-}
-
-#text {
-  grid-area: text;
-  margin-top: 0.7rem;
-  resize: none;
-  overflow: hidden;
-  padding: 0.5rem;
-  background-color: var(--black);
-  border-radius: 0.5rem;
-  height: 100px;
-  color: #efefef;
-}
-
-.bi-plus {
-  grid-area: plus;
-  width: 10rem;
+  border: 1px solid var(--cyan);
 }
 
 header,
 main,
+#notes_container,
 .note,
-aside,
-aside #note_search_container,
-aside #note_filter_container {
+aside {
   display: flex;
 }
 
+/* Button Styles */
 button {
-  transform: 0.3s;
   background-color: var(--black);
   color: var(--cyan);
-  border-radius: 0.2rem;
+  border-radius: 0.3rem;
   font-weight: bold;
-  font-family: Poppins;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   transition: 0.3s;
 }
 
@@ -90,39 +65,61 @@ button:active {
 }
 
 main button {
-  padding: 0.1rem.2rem;
+  padding: 0.1rem 0.2rem;
 }
 
-/* genera / */
+#notifications {
+  display: none;
+  position: fixed;
+  color: var(--cyan);
+  background-color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  width: 200px;
+  opacity: 0.5;
+  border: 1px solid var(--cyan);
+  top: 40px;
+}
 
+/* Body and Header Styles */
 body {
   background-color: #121212;
 }
 
 header {
   background-color: #1f1f1f;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 1rem 2rem;
   box-shadow: rgba(226, 226, 226, 0.041) 0px 10px 10px -10px;
 }
 
 header h1 {
   font-family: Poppins, sans-serif;
-  color: #efefef;
+  color: var(--white);
   letter-spacing: 2px;
 }
 
-/* / container */
+/* Main Container Styles */
 main {
   padding: 1rem;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
 }
 
+/* Notes Container */
 #notes_container {
-  flex: 3 1 0;
+  flex: 3;
+  gap: 2rem;
+  flex-wrap: wrap;
+  display: flex;
+  align-content: flex-start;
 }
 
+/* Note Styles */
 .note {
   opacity: 0.9;
   flex-direction: column;
@@ -132,10 +129,13 @@ main {
   padding: 1rem;
   border-radius: 0.3rem;
   position: relative;
+  border: 1px solid var(--white);
+  display: flex;
+  flex-direction: column;
 }
 
 .active_note.note {
-  border: 1px solid #efefef;
+  border: 1px solid var(--white);
 }
 
 .example_note.note {
@@ -145,21 +145,23 @@ main {
 .note .title {
   color: var(--cyan);
   border-bottom: 1px solid var(--cyan);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .note .text {
-  resize: none;
-  width: 100%;
-  height: 70%;
+  flex: 1;
   background-color: var(--black);
-  outline: none;
+  color: var(--white);
   border: none;
-  color: #efefef;
-  font-weight: bold;
-  font-family: Rubik;
+  resize: none;
   overflow: hidden;
+  font-weight: bold;
+  padding: 0.5rem;
+  min-height: 100px; /* Ensures textarea has a minimum height */
 }
 
+/* Options Controls */
 .options_controls {
   position: absolute;
   bottom: 0;
@@ -171,62 +173,120 @@ main {
   align-items: center;
 }
 
-/*  container /*/
-
-/* /aside */
+/* Aside Styles */
 aside {
-  flex: 1 1 0;
+  flex: 1;
   flex-direction: column;
-  border: 2px solid #efefef;
-  padding: 0.5rem;
+  border: 2px solid var(--cyan);
+  padding: 1rem;
   border-radius: 0.5rem;
-  height: 40vh;
-  width: 35vw;
+  height: 60vh;
+  width: 30vw;
+  background-color: var(--black);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative; /* Ensure it stays in flow */
 }
 
-aside > div {
-  border-bottom: 1px solid var(--cyan);
+/* Create and Search Note Containers */
+#note_create_container,
+#note_search_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
 }
 
-aside > div:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-aside input[type="text"] {
-  border: none;
-  outline: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem 0 0 0.3rem;
+#note_create_container input[type="text"],
+#note_search_container input[type="text"] {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--cyan);
   background-color: var(--black);
-  color: #efefef;
+  color: var(--white);
+  font-size: 1rem;
+  width: 100%;
 }
 
-aside button {
-  border-radius: 0 0.3rem 0.3rem 0;
-}
-
-aside #note_create_container {
-  display: grid;
-  grid-template-areas:
-    "title plus"
-    "text text";
-}
-
-aside #note_create_container:focus-within button {
-  width: 5rem !important;
-}
-
-aside #note_filter_container select {
-  appearance: none;
-  padding: 0.5rem 1rem;
+#note_create_container textarea,
+#note_search_container textarea {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--cyan);
   background-color: var(--black);
-  color: var(--cyan);
-  border-radius: 0.3rem 0 0 0.3rem;
+  color: var(--white);
+  font-size: 1rem;
+  width: 100%;
+  min-height: 100px;
+  resize: vertical; /* Allow resizing only vertically */
 }
 
-/* aside/ */
+#note_create_container button,
+#note_search_container button {
+  align-self: flex-end;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  main {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  #notes_container {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .note {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header h1 {
+    margin-bottom: 1rem;
+  }
+
+  main {
+    padding: 0.5rem;
+  }
+
+  #notes_container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .note {
+    width: 100%;
+    height: auto;
+  }
+
+  aside {
+    width: 100%;
+    margin: 0;
+    position: relative;
+  }
+}

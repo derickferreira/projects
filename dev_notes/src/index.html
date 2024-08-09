@@ -16,19 +16,20 @@
     />
   </head>
   <body>
-    <header>
+    <header id="header01">
       <h1>NotedNotes</h1>
-      <button class="bi bi-sun-fill"></button>
-      <button>
+      <button id="export_btn">
         Export to CSV
         <i class="bi bi-download"></i>
       </button>
     </header>
     <main>
       <div id="notes_container">
-        <div class="note active_note example_note">
+        <div class="note active_note example_note" id="example">
           <h3 class="title">Example</h3>
-          <textarea name="text" class="text" id="text"></textarea>
+          <textarea name="text" class="text" id="text">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur numquam sunt, deserunt assumenda non aut distinctio sequi natus voluptas nemo perspiciatis nam officiis quae neque fugiat illo, quam nisi doloribus.</textarea
+          >
           <div class="options_controls">
             <button class="bi bi-x"></button>
             <button class="bi bi-copy"></button>
@@ -39,20 +40,15 @@
       <aside>
         <div id="note_create_container">
           <input type="text" placeholder="title here" id="title" />
-          <textarea placeholder="write your note here" id="text"></textarea>
+          <textarea
+            placeholder="write your note here"
+            id="note_text"
+          ></textarea>
           <button class="bi bi-plus"></button>
         </div>
         <div id="note_search_container">
           <input type="text" id="search_text" placeholder="search here" />
           <button class="bi bi-search"></button>
-        </div>
-        <div id="note_filter_container">
-          <select name="filter" id="filter">
-            <option value="">All</option>
-            <option value="important">Important</option>
-            <option value="starred">Starred</option>
-          </select>
-          <button class="bi bi-filter"></button>
         </div>
       </aside>
     </main>
