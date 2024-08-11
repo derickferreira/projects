@@ -135,7 +135,7 @@ const renderNotes = () => {
 // Search notes
 const searchNotes = (search) => {
     const notes = getAllNotes();
-    const filteredNotes = notes.filter((note) => note.text.includes(search) || note.title.includes(search));
+    const filteredNotes = notes.filter((note) => note.title.includes(search) || note.text.includes(search));
     notesContainer.innerHTML = "";
     filteredNotes.forEach((note) => {
         const noteElement = createNoteElement(note);
