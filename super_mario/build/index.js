@@ -1,20 +1,32 @@
 "use strict";
+// creating or selecting items
 const mario = document.querySelector(".mario_avatar");
 const pipe = document.querySelector(".mario_pipe");
-const jump = () => {
-    mario === null || mario === void 0 ? void 0 : mario.classList.toggle("jump");
-    setTimeout(() => {
-        mario === null || mario === void 0 ? void 0 : mario.classList.remove("jump");
-    }, 500);
+const clouds = document.querySelector(".mario_clouds");
+const volume = document.querySelector("#volume");
+const jumpSound = new Audio("./../sounds/jump.mp4");
+const gameOverSound = new Audio("./../sounds/game_over.wav");
+// logic
+const playSound = (sound) => {
+    sound.currentTime = 0;
+    sound.volume = parseFloat(volume.value);
+    sound.play();
 };
-const loop = setInterval(() => {
-    console.log("loop");
-    const pipePosition = pipe.offsetLeft;
-    const marioPosition = +window
-        .getComputedStyle(mario)
-        .bottom.replace("px", "");
-    console.log(marioPosition);
-    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+const handleJump = () => {
+    playSound(jumpSound);
+    toggleJumpAnimation();
+};
+const toggleJumpAnimation = () => {
+    if (mario) {
+        mario === null || mario === void 0 ? void 0 : mario.classList.toggle("jump");
+        setTimeout(() => mario === null || mario === void 0 ? void 0 : mario.classList.remove("jump"), 500);
+    }
+};
+const checkGameOver = (pipePosition, marioPosition) => {
+    return pipePosition <= 120 && pipePosition > 0 && marioPosition < 80;
+};
+const endGame = (pipePosition, marioPosition) => {
+    if (pipe && mario && clouds) {
         pipe.style.animation = "none";
         pipe.style.left = `${pipePosition}px`;
         mario.style.animation = "none";
@@ -22,8 +34,22 @@ const loop = setInterval(() => {
         mario.src = "./../images/game-over.png";
         mario.style.width = "75px";
         mario.style.marginLeft = "50px";
+        clouds.style.animation = "none";
+        playSound(gameOverSound);
+    }
+};
+const gameLoop = () => {
+    var _a;
+    const pipePosition = (_a = pipe === null || pipe === void 0 ? void 0 : pipe.offsetLeft) !== null && _a !== void 0 ? _a : 0;
+    const marioPosition = mario
+        ? parseFloat(window.getComputedStyle(mario).bottom)
+        : 0;
+    if (checkGameOver(pipePosition, marioPosition)) {
+        endGame(pipePosition, marioPosition);
         clearInterval(loop);
     }
-}, 10);
-document.addEventListener("keydown", jump);
+};
+const loop = setInterval(gameLoop, 10);
+// events
+document.addEventListener("keydown", handleJump);
 //# sourceMappingURL=index.js.map

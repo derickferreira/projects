@@ -1,20 +1,41 @@
+// creating or selecting items
 const mario = document.querySelector(".mario_avatar") as HTMLImageElement;
 const pipe = document.querySelector(".mario_pipe") as HTMLImageElement;
+const clouds = document.querySelector(".mario_clouds") as HTMLImageElement;
+const volume = document.querySelector("#volume") as HTMLInputElement;
 
-const jump = (): void => {
-  mario?.classList.toggle("jump");
-  setTimeout((): void => {
-    mario?.classList.remove("jump");
-  }, 500);
+const jumpSound = new Audio("./../sounds/jump.mp4");
+const gameOverSound = new Audio("./../sounds/game_over.wav");
+
+// logic
+
+const playSound = (sound: HTMLAudioElement): void => {
+  sound.volume = parseFloat(volume.value);
+  sound.currentTime = 0;
+  sound.play();
 };
 
-const loop = setInterval((): void => {
-  const pipePosition = pipe.offsetLeft;
-  const marioPosition = +window
-    .getComputedStyle(mario)
-    .bottom.replace("px", "");
+const handleJump = (): void => {
+  playSound(jumpSound);
+  toggleJumpAnimation();
+};
 
-  if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+const toggleJumpAnimation = (): void => {
+  if (mario) {
+    mario?.classList.toggle("jump");
+    setTimeout(() => mario?.classList.remove("jump"), 500);
+  }
+};
+
+const checkGameOver = (
+  pipePosition: number,
+  marioPosition: number
+): boolean => {
+  return pipePosition <= 120 && pipePosition > 0 && marioPosition < 80;
+};
+
+const endGame = (pipePosition: number, marioPosition: number): void => {
+  if (pipe && mario && clouds) {
     pipe.style.animation = "none";
     pipe.style.left = `${pipePosition}px`;
 
@@ -25,8 +46,24 @@ const loop = setInterval((): void => {
     mario.style.width = "75px";
     mario.style.marginLeft = "50px";
 
+    clouds.style.animation = "none";
+    playSound(gameOverSound);
+  }
+};
+
+const gameLoop = (): void => {
+  const pipePosition = pipe?.offsetLeft ?? 0;
+  const marioPosition = mario
+    ? parseFloat(window.getComputedStyle(mario).bottom)
+    : 0;
+
+  if (checkGameOver(pipePosition, marioPosition)) {
+    endGame(pipePosition, marioPosition);
     clearInterval(loop);
   }
-}, 10);
+};
 
-document.addEventListener("keydown", jump);
+const loop = setInterval(gameLoop, 10);
+
+// events
+document.addEventListener("keydown", handleJump);

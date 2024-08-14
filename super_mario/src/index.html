@@ -9,9 +9,23 @@
   </head>
   <body>
     <div class="game_board">
+      <img
+        src="../images/gameover_background.png"
+        alt="gameover_background"
+        class="gameover hidden"
+      />
       <img src="../images/clouds.png" alt="mario_clouds" class="mario_clouds" />
       <img src="../images/mario.gif" alt="Mario Avatar" class="mario_avatar" />
       <img src="./../images/pipe.png" alt="mario pipe" class="mario_pipe" />
+    </div>
+    <div class="game_floor">
+      <div class="settings">
+        <label>
+          <span>Volume</span>
+          <input type="range" id="volume" name="volume" min="0" max="1" step="0.1" />
+        </label>
+      </div>
+      <div class="game_informations"></div>
     </div>
   </body>
 </html>
