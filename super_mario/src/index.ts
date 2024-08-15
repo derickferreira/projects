@@ -12,7 +12,7 @@ const gameOverSound = new Audio("./../sounds/game_over.wav");
 const playSound = (sound: HTMLAudioElement): void => {
   sound.volume = parseFloat(volume.value);
   sound.currentTime = 0;
-  sound.play();
+  sound.play()
 };
 
 const handleJump = (): void => {
@@ -47,7 +47,9 @@ const endGame = (pipePosition: number, marioPosition: number): void => {
     mario.style.marginLeft = "50px";
 
     clouds.style.animation = "none";
+    console.log("2");
     playSound(gameOverSound);
+    console.log("1");
   }
 };
 
@@ -56,6 +58,8 @@ const gameLoop = (): void => {
   const marioPosition = mario
     ? parseFloat(window.getComputedStyle(mario).bottom)
     : 0;
+
+  console.log(checkGameOver(pipePosition, marioPosition) ? true : false);
 
   if (checkGameOver(pipePosition, marioPosition)) {
     endGame(pipePosition, marioPosition);

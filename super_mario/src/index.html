@@ -8,6 +8,32 @@
     <script src="./../build/index.js" defer></script>
   </head>
   <body>
+    <div id="menu">
+      <div class="start_game">
+        <button id="start_game_btn">Start Game</button>
+      </div>
+      <div class="settings_panel">
+        <label>
+          <span>Difficulty</span>
+          <select id="difficulty" name="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <label>
+          <span>Volume</span>
+          <input
+            type="range"
+            id="volume"
+            name="volume"
+            min="0"
+            max="1"
+            step="0.1"
+          />
+        </label>
+      </div>
+    </div>
     <div class="game_board">
       <img
         src="../images/gameover_background.png"
@@ -18,14 +44,6 @@
       <img src="../images/mario.gif" alt="Mario Avatar" class="mario_avatar" />
       <img src="./../images/pipe.png" alt="mario pipe" class="mario_pipe" />
     </div>
-    <div class="game_floor">
-      <div class="settings">
-        <label>
-          <span>Volume</span>
-          <input type="range" id="volume" name="volume" min="0" max="1" step="0.1" />
-        </label>
-      </div>
-      <div class="game_informations"></div>
-    </div>
+    <div class="game_floor"></div>
   </body>
 </html>
