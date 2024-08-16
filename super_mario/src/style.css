@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Poppins, sans-serif;
 }
 
 .hidden {
@@ -15,27 +16,53 @@ body {
   flex-direction: column;
 }
 
-button {
-  padding: 0.5rem 1rem;
+#menu,
+#settings_panel,
+#settings_panel label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 #menu {
+  flex-direction: column;
   position: absolute;
   z-index: 1;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center !important;
+  transform: translate(-50%, -50%);
   gap: 0.5rem;
-  justify-content: center;
   background: url(../images//bricks.png);
   width: 35vw;
   height: 15%;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   border: 1px solid #823500;
+  color: #efefef;
+}
+
+#menu button {
+  border: none;
+  background-color: #333;
+  color: #e0f6ff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+#menu button:hover {
+  transform: scale(1.1);
+}
+
+#menu button:active {
+  transform: scale(0.95);
+}
+
+#settings_panel {
+  flex-direction: column;
+  align-items: start !important;
 }
 
 .game_board {
@@ -53,11 +80,19 @@ button {
   border: 3px solid #823500;
 }
 
+.animation.mario_pipe {
+  animation: pipeAnimation 1500ms linear infinite;
+}
+
+.animation.mario_clouds {
+  animation: cloudAnimation 20s infinite linear;
+}
+
 .mario_pipe {
   position: absolute;
+  right: -10rem;
   bottom: 0;
   width: 80px;
-  animation: pipeAnimation 1s linear infinite;
 }
 
 .mario_avatar {
@@ -72,8 +107,8 @@ button {
 
 .mario_clouds {
   position: absolute;
+  right: -50rem;
   width: 550px;
-  animation: cloudAnimation 20s infinite linear;
 }
 
 .gameover {

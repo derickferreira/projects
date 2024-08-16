@@ -3,19 +3,25 @@ const mario = document.querySelector(".mario_avatar") as HTMLImageElement;
 const pipe = document.querySelector(".mario_pipe") as HTMLImageElement;
 const clouds = document.querySelector(".mario_clouds") as HTMLImageElement;
 const volume = document.querySelector("#volume") as HTMLInputElement;
+const startByn = document.querySelector("#start_game_btn") as HTMLInputElement;
+const menu = document.querySelector("#menu") as HTMLDivElement;
+console.log(menu, startByn);
 
 const jumpSound = new Audio("./../sounds/jump.mp4");
 const gameOverSound = new Audio("./../sounds/game_over.wav");
+
+let gameStarted: boolean = false;
 
 // logic
 
 const playSound = (sound: HTMLAudioElement): void => {
   sound.volume = parseFloat(volume.value);
   sound.currentTime = 0;
-  sound.play()
+  sound.play();
 };
 
 const handleJump = (): void => {
+  if (!gameStarted) return;
   playSound(jumpSound);
   toggleJumpAnimation();
 };
@@ -47,13 +53,15 @@ const endGame = (pipePosition: number, marioPosition: number): void => {
     mario.style.marginLeft = "50px";
 
     clouds.style.animation = "none";
-    console.log("2");
     playSound(gameOverSound);
-    console.log("1");
+    gameStarted = false;
+    startByn.style.display = "block";
+    menu.style.display = "flex";
   }
 };
 
 const gameLoop = (): void => {
+  if (!gameStarted) return;
   const pipePosition = pipe?.offsetLeft ?? 0;
   const marioPosition = mario
     ? parseFloat(window.getComputedStyle(mario).bottom)
@@ -70,4 +78,12 @@ const gameLoop = (): void => {
 const loop = setInterval(gameLoop, 10);
 
 // events
+startByn.addEventListener("click", () => {
+  gameStarted = true;
+  menu.style.display = "none";
+  startByn.style.display = "none";
+  pipe.classList.add("animation");
+  clouds.classList.add("animation");
+});
+
 document.addEventListener("keydown", handleJump);
