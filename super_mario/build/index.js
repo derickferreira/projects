@@ -12,7 +12,6 @@ const gameOverSound = new Audio("./../sounds/game_over.wav");
 let gameStarted = false;
 // logic
 const playSound = (sound) => {
-    sound.volume = parseFloat(volume.value);
     sound.currentTime = 0;
     sound.play();
 };

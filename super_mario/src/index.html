@@ -4,38 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/menuStyle.css" />
     <script src="./../build/index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
   </head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet"
-  />
   <body>
+    <header>
+      <div id="game_controls">
+        <button id="pause_btn">Pause</button>
+        <button id="restart_btn">Restart</button>
+        <button id="quit_btn">Quit</button>
+      </div>
+    </header>
     <div id="menu">
-      <button id="start_game_btn">Start Game</button>
-      <div id="settings_panel">
-        <label>
-          <span>Difficulty</span>
-          <select id="difficulty" name="difficulty">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-        </label>
-        <label>
-          <span>Volume</span>
-          <input
-            type="range"
-            id="volume"
-            name="volume"
-            min="0"
-            max="1"
-            step="0.1"
-          />
-        </label>
+      <div class="top_background">
+        <img
+          src="https://www.nintendo.com/eu/media/images/10_share_images/portals_3/2x1_SuperMarioHub_image1600w.jpg"
+          alt="super mario image"
+        />
+      </div>
+      <div id="settings">
+        <div id="volume">
+          <input type="range" />
+          <i class="bi bi-plus"></i>
+          <i class="bi bi-dash"></i>
+        </div>
+        <button id="start_game_btn">Start</button>
+        <div id="user_platform">
+          <span>What is your platform?</span>
+          <div class="user_platform_controls">
+            <button class="bi bi-pc-display"></button>
+            <button class="bi bi-phone"></button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="game_board">
@@ -46,6 +58,7 @@
       />
       <img src="../images/clouds.png" alt="mario_clouds" class="mario_clouds" />
       <img src="../images/mario.gif" alt="Mario Avatar" class="mario_avatar" />
+      <img src="./../images/New Piskel.gif" alt="coin" class="coin" />
       <img src="./../images/pipe.png" alt="mario pipe" class="mario_pipe" />
     </div>
     <div class="game_floor"></div>
