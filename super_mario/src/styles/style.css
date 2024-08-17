@@ -58,6 +58,7 @@ body {
 
 .mario_clouds {
   position: absolute;
+  top: 2rem;
   right: -50rem;
   width: 550px;
 }

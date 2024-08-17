@@ -1,4 +1,7 @@
 .coin {
   position: absolute;
-  bottom: 0;
+  bottom: 6rem;
+  width: 4.5rem;
+  transform: rotate(270deg);
+  display: none !important;
 }

@@ -7,7 +7,9 @@
     <!-- css -->
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/menuStyle.css" />
-    <script src="./../build/index.js" defer></script>
+    <link rel="stylesheet" href="styles/coin.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <script src="./../build/index.js"type="module" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,8 +25,10 @@
     <header>
       <div id="game_controls">
         <button id="pause_btn">Pause</button>
-        <button id="restart_btn">Restart</button>
         <button id="quit_btn">Quit</button>
+      </div>
+      <div id="score">
+        <span id="score_text">Score: 0</span>
       </div>
     </header>
     <div id="menu">

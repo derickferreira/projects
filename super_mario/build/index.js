@@ -1,4 +1,3 @@
-"use strict";
 // creating or selecting items
 const mario = document.querySelector(".mario_avatar");
 const pipe = document.querySelector(".mario_pipe");
@@ -6,19 +5,15 @@ const clouds = document.querySelector(".mario_clouds");
 const volume = document.querySelector("#volume");
 const startByn = document.querySelector("#start_game_btn");
 const menu = document.querySelector("#menu");
-console.log(menu, startByn);
 const jumpSound = new Audio("./../sounds/jump.mp4");
 const gameOverSound = new Audio("./../sounds/game_over.wav");
 let gameStarted = false;
+import { functions } from "./methods/index";
 // logic
-const playSound = (sound) => {
-    sound.currentTime = 0;
-    sound.play();
-};
 const handleJump = () => {
     if (!gameStarted)
         return;
-    playSound(jumpSound);
+    functions.playSound(jumpSound);
     toggleJumpAnimation();
 };
 const toggleJumpAnimation = () => {
@@ -40,7 +35,7 @@ const endGame = (pipePosition, marioPosition) => {
         mario.style.width = "75px";
         mario.style.marginLeft = "50px";
         clouds.style.animation = "none";
-        playSound(gameOverSound);
+        functions.playSound(gameOverSound);
         gameStarted = false;
         startByn.style.display = "block";
         menu.style.display = "flex";
