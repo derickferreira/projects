@@ -10,9 +10,9 @@ const jumpSound = new Audio("./../sounds/jump.mp4");
 const gameOverSound = new Audio("./../sounds/game_over.wav");
 
 let gameStarted: boolean = false;
-// logic
 
-export const playSound = (sound: HTMLAudioElement): void => {
+// logic
+const playSound = (sound: HTMLAudioElement): void => {
   sound.currentTime = 0;
   sound.play();
 };
