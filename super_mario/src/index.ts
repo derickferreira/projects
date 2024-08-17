@@ -5,24 +5,18 @@ const clouds = document.querySelector(".mario_clouds") as HTMLImageElement;
 const volume = document.querySelector("#volume") as HTMLInputElement;
 const startByn = document.querySelector("#start_game_btn") as HTMLInputElement;
 const menu = document.querySelector("#menu") as HTMLDivElement;
-console.log(menu, startByn);
 
 const jumpSound = new Audio("./../sounds/jump.mp4");
 const gameOverSound = new Audio("./../sounds/game_over.wav");
 
 let gameStarted: boolean = false;
 
+import { functions } from "./methods/index";
+
 // logic
-
-const playSound = (sound: HTMLAudioElement): void => {
-  sound.volume = parseFloat(volume.value);
-  sound.currentTime = 0;
-  sound.play();
-};
-
 const handleJump = (): void => {
   if (!gameStarted) return;
-  playSound(jumpSound);
+  functions.playSound(jumpSound);
   toggleJumpAnimation();
 };
 
@@ -53,7 +47,7 @@ const endGame = (pipePosition: number, marioPosition: number): void => {
     mario.style.marginLeft = "50px";
 
     clouds.style.animation = "none";
-    playSound(gameOverSound);
+    functions.playSound(gameOverSound);
     gameStarted = false;
     startByn.style.display = "block";
     menu.style.display = "flex";

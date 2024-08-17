@@ -1,0 +1,36 @@
+header,
+#game_controls {
+  display: flex;
+  gap: 3rem;
+}
+
+header {
+  padding: 1rem;
+  position: absolute;
+  justify-content: space-between;
+  z-index: 1;
+  align-items: center;
+}
+
+header button {
+  background-color: transparent !important;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 0.3rem;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+  transition: 0.3s;
+}
+
+header button:hover {
+  transform: scale(1.1);
+}
+
+header button:active {
+  transform: scale(0.95);
+}
+
+/* animation */
