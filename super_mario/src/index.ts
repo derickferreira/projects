@@ -10,13 +10,16 @@ const jumpSound = new Audio("./../sounds/jump.mp4");
 const gameOverSound = new Audio("./../sounds/game_over.wav");
 
 let gameStarted: boolean = false;
-
-import { functions } from "./methods/index";
-
 // logic
+
+export const playSound = (sound: HTMLAudioElement): void => {
+  sound.currentTime = 0;
+  sound.play();
+};
+
 const handleJump = (): void => {
   if (!gameStarted) return;
-  functions.playSound(jumpSound);
+  playSound(jumpSound);
   toggleJumpAnimation();
 };
 
@@ -47,7 +50,7 @@ const endGame = (pipePosition: number, marioPosition: number): void => {
     mario.style.marginLeft = "50px";
 
     clouds.style.animation = "none";
-    functions.playSound(gameOverSound);
+    playSound(gameOverSound);
     gameStarted = false;
     startByn.style.display = "block";
     menu.style.display = "flex";
