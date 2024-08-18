@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Mario Game &copy;Nintendo</title>
+    <link
+      rel="shortcut icon"
+      href="./../public/favicon.ico"
+      type="image/x-icon"
+    />
     <!-- css -->
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/menuStyle.css" />
@@ -25,7 +30,6 @@
     <header>
       <div id="game_controls">
         <button id="pause_btn">Pause</button>
-        <button id="quit_btn">Quit</button>
       </div>
       <div id="score">
         <span id="score_text">Score: 0</span>
@@ -40,7 +44,7 @@
       </div>
       <div id="settings">
         <div id="volume">
-          <input type="range" />
+          <input type="range" min="0" max="100" value="50" />
           <i class="bi bi-plus"></i>
           <i class="bi bi-dash"></i>
         </div>
