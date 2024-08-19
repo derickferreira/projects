@@ -19,7 +19,7 @@ const playSound = (sound) => {
     if (isNaN(volumeValue) || volumeValue < 0 || volumeValue > 100) {
         volumeValue = 50;
     }
-    sound.volume = volumeValue / 100; // Ajustando o volume para o intervalo de 0 a 1
+    sound.volume = volumeValue / 100;
     sound.play();
 };
 const handleJump = () => {
@@ -39,18 +39,20 @@ const checkGameOver = (pipePosition, marioPosition) => {
 };
 const endGame = (pipePosition, marioPosition) => {
     if (pipe && mario && clouds) {
-        pipe.style.animation = "none";
+        menu.style.display = "flex";
+        startBtn.style.display = "block";
+        startBtn.textContent = "Play Again";
+        pipe.classList.remove("animation");
         pipe.style.left = `${pipePosition}px`;
-        mario.style.animation = "none";
         mario.style.bottom = `${marioPosition}px`;
         mario.src = "./../images/game-over.png";
         mario.style.width = "75px";
         mario.style.marginLeft = "50px";
+        clouds.classList.remove("animation");
         clouds.style.animation = "none";
         playSound(gameOverSound);
-        gameStarted = false;
-        startBtn.style.display = "block";
-        menu.style.display = "flex";
+        clearInterval(loop);
+        gameStarted = true;
     }
 };
 const gameLoop = () => {
@@ -67,15 +69,21 @@ const gameLoop = () => {
     }
 };
 const restartGame = () => {
-    gameStarted = true;
     gamePaused = false;
     menu.style.display = "none";
     startBtn.style.display = "none";
+    pipe.style.left = "initial";
+    mario.style.bottom = "0";
+    mario.style.marginLeft = "0";
+    pipe.classList.remove("animation");
+    clouds.classList.remove("animation");
+    void pipe.offsetWidth;
+    void clouds.offsetWidth;
     pipe.classList.add("animation");
     clouds.classList.add("animation");
     mario.src = "./../images/mario.gif";
     mario.style.width = "150px";
-    mario.style.marginLeft = "0";
+    gameOverSound.remove();
     loop = window.setInterval(gameLoop, 10);
 };
 const togglePauseGame = () => {
@@ -95,10 +103,12 @@ const togglePauseGame = () => {
 };
 // events
 startBtn.addEventListener("click", () => {
+    console.log("Game Started:", gameStarted);
     if (gameStarted) {
         restartGame();
     }
     else {
+        console.log("Restarting game for the first time...");
         gameStarted = true;
         gamePaused = false;
         menu.style.display = "none";
