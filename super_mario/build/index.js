@@ -9,11 +9,15 @@ const pauseBtn = document.querySelector("#pause_btn");
 const menu = document.querySelector("#menu");
 const jumpSound = new Audio("./../sounds/jump.mp4");
 const gameOverSound = new Audio("./../sounds/game_over.wav");
+let jumpSoundPlaying = false;
 let gameStarted = false;
 let gamePaused = false;
+let isGameOver = false;
+let isJumping = false;
 let loop;
 // logic
 const playSound = (sound) => {
+    sound.pause();
     sound.currentTime = 0;
     let volumeValue = parseFloat(volumeInput.value);
     if (isNaN(volumeValue) || volumeValue < 0 || volumeValue > 100) {
@@ -23,15 +27,19 @@ const playSound = (sound) => {
     sound.play();
 };
 const handleJump = () => {
-    if (!gameStarted)
+    if (!gameStarted || isGameOver || isJumping || gamePaused)
         return;
+    isJumping = true;
     playSound(jumpSound);
     toggleJumpAnimation();
 };
 const toggleJumpAnimation = () => {
     if (mario) {
         mario === null || mario === void 0 ? void 0 : mario.classList.toggle("jump");
-        setTimeout(() => mario === null || mario === void 0 ? void 0 : mario.classList.remove("jump"), 500);
+        setTimeout(() => {
+            mario === null || mario === void 0 ? void 0 : mario.classList.remove("jump");
+            isJumping = false;
+        }, 500);
     }
 };
 const checkGameOver = (pipePosition, marioPosition) => {
@@ -53,6 +61,8 @@ const endGame = (pipePosition, marioPosition) => {
         playSound(gameOverSound);
         clearInterval(loop);
         gameStarted = true;
+        isGameOver = true;
+        isJumping = false;
     }
 };
 const gameLoop = () => {
@@ -69,9 +79,13 @@ const gameLoop = () => {
     }
 };
 const restartGame = () => {
+    isJumping = false;
+    isGameOver = false;
     gamePaused = false;
     menu.style.display = "none";
     startBtn.style.display = "none";
+    gameOverSound.pause();
+    gameOverSound.currentTime = 0;
     pipe.style.left = "initial";
     mario.style.bottom = "0";
     mario.style.marginLeft = "0";

@@ -10,13 +10,17 @@ const menu = document.querySelector("#menu") as HTMLDivElement;
 const jumpSound = new Audio("./../sounds/jump.mp4");
 const gameOverSound = new Audio("./../sounds/game_over.wav");
 
+let jumpSoundPlaying: boolean = false;
 let gameStarted: boolean = false;
 let gamePaused: boolean = false;
+let isGameOver: boolean = false;
+let isJumping: boolean = false;
 let loop: number;
 
 // logic
 
 const playSound = (sound: HTMLAudioElement): void => {
+  sound.pause();
   sound.currentTime = 0;
 
   let volumeValue = parseFloat(volumeInput.value);
@@ -30,7 +34,8 @@ const playSound = (sound: HTMLAudioElement): void => {
 };
 
 const handleJump = (): void => {
-  if (!gameStarted) return;
+  if (!gameStarted || isGameOver || isJumping || gamePaused) return;
+  isJumping = true;
   playSound(jumpSound);
   toggleJumpAnimation();
 };
@@ -38,7 +43,10 @@ const handleJump = (): void => {
 const toggleJumpAnimation = (): void => {
   if (mario) {
     mario?.classList.toggle("jump");
-    setTimeout(() => mario?.classList.remove("jump"), 500);
+    setTimeout(() => {
+      mario?.classList.remove("jump");
+      isJumping = false;
+    }, 500);
   }
 };
 
@@ -70,6 +78,8 @@ const endGame = (pipePosition: number, marioPosition: number): void => {
     playSound(gameOverSound);
     clearInterval(loop);
     gameStarted = true;
+    isGameOver = true;
+    isJumping = false;
   }
 };
 
@@ -87,9 +97,14 @@ const gameLoop = (): void => {
 };
 
 const restartGame = (): void => {
+  isJumping = false;
+  isGameOver = false;
   gamePaused = false;
   menu.style.display = "none";
   startBtn.style.display = "none";
+
+  gameOverSound.pause();
+  gameOverSound.currentTime = 0;
 
   pipe.style.left = "initial";
   mario.style.bottom = "0";
