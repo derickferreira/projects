@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + WebSocket
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🎨 Custom Project Icon
 
-Currently, two official plugins are available:
+For this project, a custom pixel art icon was created using Piskel. This adds a unique touch to the application, showcasing a personalised design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🗨️ Real-Time Chat Application
 
-## Expanding the ESLint configuration
+## 📖 Description
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project is a real-time chat application inspired by platforms like WhatsApp and Messenger. It utilises WebSockets for real-time communication, providing an instant chat experience between users.
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Real-Time Messaging:** Send and receive messages instantly using WebSockets.
+- **User Authentication:** Simple login system.
+- **Simple and Intuitive Interface:** User-friendly UI with easy navigation and use.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🛠️ Technologies Used
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Frontend:**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+  - React
+  - TypeScript
+  - Context API (for global state management)
+  - React Router (for navigation)
+
+- **Backend:**
+  - Node.js
+  - Express
+  - WebSocket
+
+## 📦 Project Structure
+
+- **/components:** Contains reusable React components like the chat form and message list.
+- **/context:** Manages global contexts, such as `UserContext` for user information and `WebSocketContext` for WebSocket connection.
+- **/pages:** Contains application pages, such as the login page and chat page.
+- **/websocket:** Handles WebSocket logic, including event handlers.
+- **app.ts:** Configures the Express app, including middleware and routes.
+- **server.ts:** Starts the HTTP server and sets up WebSocket.
+
+### Prerequisites
+
+- Node.js installed on your machine.
+
+## 🤝 Contribution
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+This project is licensed under the MIT Licence. See the LICENSE file for more details.
