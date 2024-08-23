@@ -1,0 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Rubik;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  background: url("https://preview.redd.it/ts7vuoswhwf41.jpg?width=640&crop=smart&auto=webp&s=803e1cd74e328f84ee30108c86e7d38ec849fc8a");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #f2f2f2;
+}
