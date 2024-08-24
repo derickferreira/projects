@@ -50,8 +50,8 @@ const ChatPage = () => {
 
   return (
     <div className="container">
-      <ChatMessageComponent />
-      <ChatFormComponent />
+      <ChatMessageComponent messages={messages} />
+      <ChatFormComponent onSendMessage={sendMessage} />
     </div>
   );
 };
