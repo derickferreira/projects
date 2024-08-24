@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // context
+import { WebSocketProvider } from "./context/WebSocketContext.tsx";
 
 const routes = [
   {
@@ -33,6 +34,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <WebSocketProvider>
+      <RouterProvider router={router} />
+    </WebSocketProvider>
   </StrictMode>
 );
