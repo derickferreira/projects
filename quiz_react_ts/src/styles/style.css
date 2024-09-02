@@ -79,7 +79,7 @@ button:hover {
 }
 
 .answer_container button {
-  background-color: #28a745;
+  background-color: #444;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -91,7 +91,7 @@ button:hover {
 }
 
 .answer_container button:hover {
-  background-color: #218838;
+  background-color: #000;
 }
 
 .next_btn {
@@ -115,3 +115,16 @@ button:hover {
   font-size: 1.2em;
   color: #333;
 }
+
+/* .correct {
+  background-color: #28a745;
+}
+
+.incorrect {
+  background-color: #dc3545;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+} */
