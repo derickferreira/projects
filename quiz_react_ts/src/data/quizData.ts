@@ -1,4 +1,4 @@
-export const Quiz = {
+export const QuizData = {
   triviaQuiz: [
     {
       question: "What is the largest ocean on Earth?",

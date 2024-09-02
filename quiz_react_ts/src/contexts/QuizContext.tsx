@@ -38,6 +38,8 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
       setScore((prevScore) => prevScore + 1);
 
       nextQuestion();
+    } else {
+      nextQuestion();
     }
   };
 
