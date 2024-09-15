@@ -1,50 +1,92 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple weather app built with React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Follow these steps to set up the project:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository and navigate to the project directory:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   ```bash
+   git clone https://github.com/your-username/weather-app.git
+   cd weather-app
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install the dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. Install Tailwind CSS and initialize it:
+
+   ```bash
+   npm install -D tailwindcss
+   npx tailwindcss init
+   ```
+
+4. Configure Tailwind CSS:
+
+   Update your `tailwind.config.js` file to include the paths to your content files:
+
+   ```javascript
+   module.exports = {
+     purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+     darkMode: false,
+     theme: {
+       extend: {},
+     },
+     variants: {
+       extend: {},
+     },
+     plugins: [],
+   };
+   ```
+
+5. Add Tailwind directives to your CSS file:
+
+   Create or update the file `src/index.css` and add the following:
+
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
+
+6. Import the CSS file in your main entry file:
+
+   Open `src/index.tsx` (or `src/index.js`) and import the CSS file:
+
+   ```javascript
+   import "./index.css";
+   ```
+
+## Usage
+
+1. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+2. Open your browser and navigate to `http://localhost:3000`.
+
+3. Enter a city name in the input field and click "Search" to view the current weather and hourly forecast.
+
+## Features
+
+- Fetches current weather and hourly forecast using the OpenWeatherMap API.
+- Displays weather icon, temperature, and description.
+- Responsive design with Tailwind CSS.
+
+## License
+
+This project is licensed under the MIT License.
