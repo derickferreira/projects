@@ -1,10 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { createRoot } from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+// context
+import { WeatherProvider } from "./contexts/WeatherContext.tsx";
+
+createRoot(document.getElementById("root")!).render(
+  <WeatherProvider>
     <App />
-  </StrictMode>,
-)
+  </WeatherProvider>
+);
