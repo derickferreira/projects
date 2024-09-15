@@ -71,15 +71,19 @@ Follow these steps to set up the project:
 
 ## Usage
 
-1. Start the development server:
+1. Go to WeatherContext.tsx file and add your KEY
+  const API_KEY = "YOUR KEY HERE";
+  // CREATE  an account HERE to ACCESS your KEY: https://openweathermap.org/
+
+2. Start the development server:
 
    ```bash
    npm start
    ```
 
-2. Open your browser and navigate to `http://localhost:3000`.
+3. Open your browser and navigate to `http://localhost:3000`.
 
-3. Enter a city name in the input field and click "Search" to view the current weather and hourly forecast.
+4. Enter a city name in the input field and click "Search" to view the current weather and hourly forecast.
 
 ## Features
 
