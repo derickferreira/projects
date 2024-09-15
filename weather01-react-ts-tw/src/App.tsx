@@ -44,7 +44,7 @@ function App() {
               className="mx-auto my-4"
             />
             <div id="temp-div" className="text-3xl font-semibold text-gray-800">
-              <p>{weather.main.temp}°C</p>
+              <p>{Math.round(weather.main.temp - 273.15)}°C</p>
             </div>
             <div id="weather-info" className="text-lg text-gray-600">
               <p>{weather.weather[0].description}</p>
@@ -65,7 +65,9 @@ function App() {
                 <p className="text-gray-600">
                   {new Date(item.dt * 1000).toLocaleTimeString()}
                 </p>
-                <p className="text-gray-600">{item.main.temp}°C</p>
+                <p className="text-gray-600">
+                  {Math.round(item.main.temp - 273.15)}°C
+                </p>
                 <img
                   src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`}
                   alt="weather icon"
