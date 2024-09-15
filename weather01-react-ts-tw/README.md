@@ -16,7 +16,7 @@ Follow these steps to set up the project:
 1. Clone the repository and navigate to the project directory:
 
    ```bash
-   git clone https://github.com/your-username/weather-app.git
+   git clone https://github.com/derickferreira/weather01-react-ts-tw.git
    cd weather-app
    ```
 
